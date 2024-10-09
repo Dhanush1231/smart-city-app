@@ -1,0 +1,654 @@
+.about-container {
+   
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+  }
+  
+  .about-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .about-header h1 {
+    margin-top: 10%;
+    font-size: 2.5em;
+    color: #2c3e50;
+  }
+  
+  .about-introduction,
+  .about-features,
+  .about-vision-mission,
+  .about-services,
+  .about-team,
+  .about-contact {
+    margin-bottom: 40px;
+
+  }
+  
+  .about-introduction h2,
+  .about-features h2,
+  .about-vision-mission h2,
+  .about-team h2,
+  .about-contact h2 {
+    font-size: 1.8em;
+    color: #16a085;
+    margin-bottom: 10px;
+  }
+  .about-services h1,h2{
+    color:#16a085 ;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+  }
+  
+  .about-introduction p,
+  .about-features ul,
+  .about-vision-mission p,
+  .about-services ul,
+  .about-team p,
+  .about-contact p {
+    font-size: 1.1em;
+  }
+  
+  .about-image {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+  }
+  
+  ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+  
+  li {
+    margin-bottom: 10px;
+  }
+  
+  h2 {
+    margin-top: 20px;
+  }
+  
+  h2:first-of-type {
+    margin-top: 0;
+  }
+  
+  .about-services h2 {
+    font-size: 1.6em;
+    margin-top: 30px;
+    color: #2980b9;
+  }
+  
+  .about-team p,
+  .about-contact p {
+    font-size: 1.2em;
+  }
+  
+  .about-contact p {
+    margin-bottom: 5px;
+  }
+  
+  a {
+    color: #2980b9;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 768px) {
+    .about-container {
+      padding: 10px;
+    }
+  
+    .about-header h1 {
+      font-size: 2em;
+    }
+  
+    .about-introduction h2,
+    .about-features h2,
+    .about-vision-mission h2,
+    .about-services h2,
+    .about-team h2,
+    .about-contact h2 {
+      font-size: 1.5em;
+    }
+  
+    .about-image {
+      margin-top: 10px;
+    }
+  }
+  
+  /* ServicePage.css */
+.services {
+    padding: 20px;
+  }
+  .services h1{
+    margin-top: 7%;
+    margin-bottom: 4%;
+    margin-left: 40%;
+    color: #16a085;
+  }
+  
+  .service-grid {
+    display: flex;
+    flex-wrap: wrap;  
+    gap: 20px; 
+    justify-content: center;  
+  }
+  
+  .service-item {
+    background-color: #f9f9f9;  
+    border: 1px solid #ccc; 
+    border-radius: 8px;  
+    padding: 15px;  
+    width: calc(33% - 40px);  
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  
+    text-align: center;  
+  }
+  
+  .service-image {
+    width: 100px;  
+    height: 100px;  
+    object-fit: cover;  
+    border-radius: 50%;  
+  }
+  
+  @media (max-width: 768px) {
+    .service-item {
+      width: calc(50% - 40px); 
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .service-item {
+      width: 100%; 
+  }
+}
+
+ 
+
+
+ /* Home component styles */
+ .home {
+  background: url('./assets/city2.jpg') no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 20px;
+  width: 100%;
+}
+
+
+.btn {
+  background-color: transparent;
+  font-size: 16px;
+  margin-left: 40px;
+  border: 1px solid;
+  background-color: #49557e;
+  color: white;
+  padding: 6px 15px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.home h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.home p {
+  font-size: 24px;
+  max-width: 600px;
+  line-height: 1.5;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .home h1 {
+    font-size: 2.5rem;
+  }
+
+  .home p {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home h1 {
+    font-size: 2rem;
+  }
+
+  .home p {
+    font-size: 1rem;
+  }
+}
+
+
+
+  /* Public Transportation Styling */
+  .transport{
+    margin-top: 10%;
+    align-items: center;
+    margin-left: 40%;
+    color: #16a085;
+  }
+
+  /*Education styling */
+  .education{
+    margin-top: 10%;
+    margin-left: 40%;
+    color: chartreuse;
+  }
+
+
+/* SignIn styling */
+/*  
+body, html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+.login {
+  width: 300px;
+  margin-left: 40%;
+  margin-top: 7%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+
+
+/* Heading style */
+.login h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Styles for input boxes */
+.input-box {
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.input-box label {
+  font-size: 14px;
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 10px;
+  padding-right: 40px; /* Space for the icon */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #333;
+  outline: none;
+}
+
+.input-box input:focus {
+  border-color: #007bff;
+}
+
+/* Styles for icons */
+.input-box .icon {
+  position: absolute;
+  top: 35px;
+  right: 10px;
+  color: #888;
+  font-size: 18px;
+  pointer-events: none;
+}
+
+/* Styles for the login button */
+.login-btn button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.login-btn button:hover {
+  background-color: #0056b3;
+}
+
+/* Forgot password and remember me section */
+.forgot {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.forgot label {
+  font-size: 12px;
+}
+
+.forgot a {
+  font-size: 12px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.forgot a:hover {
+  text-decoration: underline;
+}
+
+/* Register section */
+
+.account {
+  margin-top: 20px;
+}
+
+.account label {
+  font-size: 14px;
+}
+
+.account button {
+  background-color: transparent;
+  color: #007bff;
+  border: none;
+  cursor: pointer;
+}
+
+.account button:hover {
+  text-decoration: underline;
+}
+
+/* Additional styles for mobile responsiveness */
+@media (max-width: 480px) {
+  .login {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .login h1 {
+    font-size: 20px;
+  }
+}
+
+
+.register-btn {
+  width: 100%;
+  padding: 10px;
+  background-color:#49557e;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.register-btn:hover {
+  background-color:#49557e;
+}
+
+.Register {
+  width: 350px;
+  margin-left: 40%;
+  margin-top: 7%;
+  padding: 15px; /* Reduced padding */
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Heading style */
+.Register h1 {
+  font-size: 22px;
+  margin-bottom: 15px; /* Reduced margin */
+  color: #333;
+}
+
+/* Styles for input boxes */
+.input-box {
+  margin-bottom: 10px; /* Reduced margin */
+  position: relative;
+}
+
+.input-box label {
+  font-size: 14px;
+  display: block;
+  margin-bottom: 3px; /* Reduced margin */
+  color: #555;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 8px; /* Reduced padding */
+  padding-right: 35px; /* Reduced padding for the icon */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #333;
+  outline: none;
+}
+
+.input-box input:focus {
+  border-color: #007bff;
+}
+
+/* Styles for icons */
+.input-box .icon {
+  position: absolute;
+  top: 28px; /* Adjusted position */
+  right: 10px;
+  color: #888;
+  font-size: 18px;
+  pointer-events: none;
+}
+
+/* Styles for the Register button */
+.login-btn button {
+  width: 100%;
+  padding: 8px; /* Reduced padding */
+  background-color: #28a745;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  font-size: 14px; /* Slightly smaller font size */
+  cursor: pointer;
+}
+
+.login-btn button:hover {
+  background-color: #218838;
+}
+
+/* Account section with login option */
+.account {
+  margin-top: 15px; /* Reduced margin */
+}
+
+.account label {
+  font-size: 14px;
+}
+
+.account .login-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 8px; /* Reduced padding */
+  border: none;
+  border-radius: 5px;
+  font-size: 14px; /* Slightly smaller font size */
+  cursor: pointer;
+  width: 100%;
+}
+
+.account .login-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Additional styles for mobile responsiveness */
+@media (max-width: 480px) {
+  .Register {
+    width: 90%;
+    padding: 10px; /* Further reduced padding for mobile */
+  }
+
+  .Register h1 {
+    font-size: 18px;
+  }
+}
+
+/*contact us */
+.contact-container {
+  padding: 30px;
+  margin-top: 20%;
+  max-width: 600px;
+  margin: 50px auto;
+  border: 1px solid #ddd; /* Border around the container */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  background-color: #ffffff; /* Background color */
+}
+
+.contact-container h2 {
+  text-align: center; /* Center the heading */
+  margin-bottom: 20px; /* Margin below the heading */
+  color: #333; /* Heading color */
+}
+
+.form-group {
+  margin-bottom: 15px; /* Space between form elements */
+}
+
+.form-group label {
+  display: block; /* Make the label a block element */
+  margin-bottom: 5px; /* Space between label and input */
+  font-weight: bold; /* Bold label text */
+  color: #555; /* Label color */
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%; /* Full width */
+  padding: 12px; /* Padding inside input fields */
+  border: 1px solid #ccc; /* Border for input fields */
+  border-radius: 4px; /* Rounded corners */
+  font-size: 16px; /* Font size */
+  box-sizing: border-box; /* Box model */
+  transition: border-color 0.3s; /* Smooth transition for border */
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #4CAF50; /* Change border color on focus */
+  outline: none; /* Remove outline */
+}
+
+.submit-button {
+  padding: 10px 20px; /* Padding for the button */
+  background-color: #4CAF50; /* Button color */
+  color: white; /* Button text color */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Change cursor on hover */
+  font-size: 16px; /* Font size */
+  display: block; /* Center the button */
+  width: 100%; /* Full width */
+  transition: background-color 0.3s; /* Smooth background transition */
+}
+
+.submit-button:hover {
+  background-color: #45a049; /* Darker button color on hover */
+}
+
+
+/* PublicTransportation.css */
+/* src/PublicTransportation.css */
+.public-transportation {
+  padding: 20px;
+  margin-top: 10%;
+  margin-left: 30%;
+}
+
+.search-form {
+  margin: 20px 0;
+}
+
+.available-routes {
+  margin-top: 20px;
+}
+
+.available-routes ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.available-routes li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 0;
+}
+
+input {
+  margin: 5px;
+  padding: 8px;
+  width: 200px;
+}
+
+select {
+  margin: 5px;
+  padding: 8px;
+  width: 220px;
+}
+
+button {
+  margin-left: 10px;
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+
+/* Hospital Management CSS */
+ /* .healthcare-container{
+  margin-top: 7%;
+  margin-left: 30%;
+ } */
+
+  .icon{
+    position: fixed;
+    width: 60%;
+    height: 60%;
+    
+
+  }
