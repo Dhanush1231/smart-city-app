@@ -1,90 +1,65 @@
-import React, { useState, useEffect } from 'react';
-import template from '../assets/health_temp.jpeg.jpg';
-function Healthcare() {
-  // State to hold healthcare centers data
-  const healthcareList = [
-    { hospitalName: 'City Hospital', location: 'Downtown', contact: '123-456-7890', service: 'General', coords: { lat: 40.7128, lng: -74.0060 } },
-    { hospitalName: 'Dental Clinic', location: 'Uptown', contact: '987-654-3210', service: 'Dental', coords: { lat: 40.7150, lng: -74.0150 } },
-    { hospitalName: 'Children’s Hospital', location: 'Eastside', contact: '456-123-7890', service: 'Pediatrics', coords: { lat: 40.7180, lng: -74.0100 } },
-    { hospitalName: 'Emergency Care Center', location: 'Westside', contact: '321-654-9870', service: 'Emergency', coords: { lat: 40.7100, lng: -74.0050 } },
-  ];
+import React, { useState } from 'react';
+import axios from 'axios';
 
-  // State for search functionality and user location
-  const [searchService, setSearchService] = useState('General');
-  const [filteredHealthcareList, setFilteredHealthcareList] = useState([]);
-  const [userLocation, setUserLocation] = useState({ lat: 0, lng: 0 });
+const Healthcare = () => {
+    const [selectedService, setSelectedService] = useState('');
+    const [services, setServices] = useState([]);
+    const [isSearched, setIsSearched] = useState(false);
 
-  // Fetch user's current location
-  useEffect(() => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        setUserLocation({
-          lat: position.coords.latitude,
-          lng: position.coords.longitude,
-        });
-      });
-    }
-  }, []);
+    const handleChange = (event) => {
+        setSelectedService(event.target.value);
+        setIsSearched(false); // Reset the search state when the service changes
+    };
 
-  // Function to calculate distance between two coordinates
-  const calculateDistance = (lat1, lng1, lat2, lng2) => {
-    const toRad = (value) => (value * Math.PI) / 180;
-    const R = 6371; // Radius of the Earth in kilometers
-    const dLat = toRad(lat2 - lat1);
-    const dLng = toRad(lng2 - lng1);
-    const a =
-      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-      Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
-      Math.sin(dLng / 2) * Math.sin(dLng / 2);
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    return R * c; // Distance in kilometers
-  };
+    const handleSearch = () => {
+        if (selectedService) {
+            axios.get(`/api/${selectedService}-services`)
+                .then(response => {
+                    setServices(response.data);
+                    setIsSearched(true);
+                })
+                .catch(error => {
+                    console.error(`Error fetching ${selectedService} services:`, error);
+                });
+        }
+    };
 
-  // Search functionality
-  const handleSearch = () => {
-    const filteredList = healthcareList.filter(center => center.service === searchService)
-      .map(center => ({
-        ...center,
-        distance: calculateDistance(userLocation.lat, userLocation.lng, center.coords.lat, center.coords.lng)
-      }));
-    setFilteredHealthcareList(filteredList);
-  };
-
-  return (
-    <div className="healthcare-container">
-    <h1>HealthCare Service</h1>
-      <header className='header-temp'>
-        <img src={template} alt='' className='icon' />
-      </header>
-      <p>Details about hospitals and clinics.</p>
-
-      <h2>Search Healthcare Centers by Service</h2>
-      <div className="search-section">
-        <label>Service Type:</label>
-        <select value={searchService} onChange={(e) => setSearchService(e.target.value)}>
-          <option value="General">General</option>
-          <option value="Emergency">Emergency</option>
-          <option value="Dental">Dental</option>
-          <option value="Pediatrics">Pediatrics</option>
-          <option value="Orthopedics">Orthopedics</option>
-        </select>
-        <button onClick={handleSearch}>Search</button>
-      </div>
-
-      <h2>List of Healthcare Centers</h2>
-      <ul className="healthcare-list">
-        {filteredHealthcareList.length > 0 ? (
-          filteredHealthcareList.map((center, index) => (
-            <li key={index}>
-              <strong>{center.hospitalName}</strong> - {center.location}, Contact: {center.contact}, Service: {center.service}, Distance: {center.distance.toFixed(2)} km
-            </li>
-          ))
-        ) : (
-          <p>No healthcare centers found for the selected service.</p>
-        )}
-      </ul>
-    </div>
-  );
-}
+    return (
+        <div className='healthcare'>
+            <label htmlFor="healthcareSelect">Select Healthcare Service</label>
+            <select 
+                id="healthcareSelect" 
+                value={selectedService} 
+                onChange={handleChange}
+            >
+                <option value="" disabled>Select a service</option>
+                <option value="hospital">Hospitals</option>
+                <option value="clinic">Clinics</option>
+            </select>
+            <br/>
+            <button onClick={handleSearch}>Search</button>
+            {isSearched && services.length > 0 && (
+                <table className='service-table'>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Contact</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {services.map(service => (
+                            <tr key={service.id}>
+                                <td>{service.name}</td>
+                                <td>{service.address}</td>
+                                <td>{service.contact}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            )}
+        </div>
+    );
+};
 
 export default Healthcare;

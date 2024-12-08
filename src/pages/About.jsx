@@ -1,5 +1,6 @@
 import React from 'react';
 import cityImage from '../assets/c.png'
+
 const About = () => {
   return (
     <div className="about-container">

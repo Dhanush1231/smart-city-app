@@ -24,7 +24,7 @@ const ServiceList = () => {
           <div key={service.id} className='service-item'>
             <img src={service.image} alt={service.name} className='service-image' />
             <h2>{service.name}</h2>
-            <p>{service.description}</p>
+            <p1>{service.description}</p1><br/>
             <a href={service.link}>Learn more about {service.name}</a>
           </div>
         ))}
